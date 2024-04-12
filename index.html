@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Chat</title>
+</head>
+<body>
+
+<div id="chat-container">
+  <div id="chat-output"></div>
+  <div id="user-input">
+    <input type="text" id="user-message" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+function sendMessage() {
+  const userInput = document.getElementById('user-message').value;
+  const chatOutput = document.getElementById('chat-output');
+  
+  chatOutput.innerHTML += "<p>I'm sorry, but I still haven't read any documentation yet.</p>";
+}
+</script>
+
+</body>
+</html>
