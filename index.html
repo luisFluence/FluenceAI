@@ -18,18 +18,22 @@ body {
   background-color: #333;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
 }
 
 #chat-output {
-  margin-bottom: 20px;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 #user-input {
-  display: flex;
+  margin-top: 20px;
 }
 
 #user-message {
-  flex: 1;
+  width: calc(100% - 80px);
   padding: 10px;
   margin-right: 10px;
   border: none;
@@ -51,6 +55,18 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.answer {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #555;
+}
+
+.question {
+  font-weight: bold;
+  color: #ffa500;
+}
 </style>
 </head>
 <body>
@@ -68,7 +84,13 @@ function sendMessage() {
   const userInput = document.getElementById('user-message').value;
   const chatOutput = document.getElementById('chat-output');
   
-  chatOutput.innerHTML += "<p>I'm sorry, but I still haven't read any documentation yet.</p>";
+  chatOutput.innerHTML += "<div class='answer'><p class='question'>You:</p><p>" + userInput + "</p></div>";
+  
+  // Scroll to bottom
+  chatOutput.scrollTop = chatOutput.scrollHeight;
+  
+  // Clear input
+  document.getElementById('user-message').value = '';
 }
 </script>
 
